@@ -1,23 +1,28 @@
+import { useEffect, useState } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
+import { ElemSearch } from './elem-search'
 
 function App() {
+
+  const [search, setSearch] = useState({
+    us_nome: "",
+    us_cpf_cnpj: "",
+    doc_end: 0,
+    doc_sei: "123",
+    proc_sei: "",
+  })
+
+  const [users, setUsers] = useState()
+
+  useEffect(() => {
+    console.log(users)
+  }, [users])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ElemSearch search={search} setSearch={setSearch} setUsers={setUsers} />
     </div>
   );
 }
